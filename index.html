@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Daily Notes 💕</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-heart"></i> Ella and James' Diary</h1>
+            <p>Share your day with love 💕</p>
+            <div class="heart-nudge-section">
+                <button class="heart-nudge-btn" id="heartNudge">
+                    <i class="fas fa-heart"></i>
+                    <span>Nudge here to send a heart!</span>
+                </button>
+                <div class="heart-counter">
+                    <span id="heartCount">0</span> hearts sent today 💕
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="note-section">
+                <div class="note-header">
+                    <h2><i class="fas fa-pen"></i> Write Your Note</h2>
+                    <div class="date-display" id="currentDate"></div>
+                </div>
+                
+                <div class="note-input-area">
+                    <textarea 
+                        id="noteInput" 
+                        placeholder="I want to hear more about your day!!! So tell me :)"
+                        maxlength="2000"
+                    ></textarea>
+                    <div class="character-count">
+                        <span id="charCount">0</span>/2000
+                    </div>
+                </div>
+
+                <div class="image-upload-section">
+                    <h3><i class="fas fa-camera"></i> Add Photos</h3>
+                    <div class="image-upload-area" id="imageUploadArea">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Click to add photos or drag & drop</p>
+                        <input type="file" id="imageInput" multiple accept="image/*" hidden>
+                    </div>
+                    <div class="image-preview" id="imagePreview"></div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="saveNote" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save Note
+                    </button>
+                    <button id="clearNote" class="btn btn-secondary">
+                        <i class="fas fa-trash"></i> Clear
+                    </button>
+                    <button id="moodBtn" class="btn btn-mood">
+                        <i class="fas fa-smile"></i> Add Mood
+                    </button>
+                </div>
+            </div>
+
+            <div class="notes-display">
+                <div class="notes-header">
+                    <h2><i class="fas fa-book"></i> Our Notes</h2>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="today">Today</button>
+                        <button class="filter-btn" data-filter="week">This Week</button>
+                    </div>
+                </div>
+                
+                <div class="notes-list" id="notesList">
+                    <!-- Notes will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" src="" alt="Full size image">
+        </div>
+    </div>
+
+    <!-- Mood Selection Modal -->
+    <div class="modal" id="moodModal">
+        <div class="modal-content mood-modal">
+            <span class="close">&times;</span>
+            <h3>How are you feeling today? 😊</h3>
+            <div class="mood-options">
+                <button class="mood-option" data-mood="😊">😊 Happy</button>
+                <button class="mood-option" data-mood="😍">😍 Loved</button>
+                <button class="mood-option" data-mood="😌">😌 Peaceful</button>
+                <button class="mood-option" data-mood="🤗">🤗 Excited</button>
+                <button class="mood-option" data-mood="😴">😴 Tired</button>
+                <button class="mood-option" data-mood="😔">😔 Sad</button>
+                <button class="mood-option" data-mood="😤">😤 Frustrated</button>
+                <button class="mood-option" data-mood="🤔">🤔 Thoughtful</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Hearts Animation Container -->
+    <div id="floatingHearts"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
